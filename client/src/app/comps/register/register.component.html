@@ -1,0 +1,68 @@
+<h1>Register</h1>
+<form #f="ngForm" (ngSubmit)="nextstep()">
+  <label for="email">Email</label>
+  <input
+    type="text"
+    required
+    name="email"
+    placeholder="email"
+    [(ngModel)]="form.email"
+  />
+  <label for="password">Password</label>
+  <input
+    type="password"
+    required
+    name="password"
+    placeholder="password"
+    [(ngModel)]="form.password"
+  />
+  <label for="password2">Same Password</label>
+  <input
+    type="password"
+    required
+    name="password2"
+    placeholder="password again"
+    [(ngModel)]="passwordToApproved"
+  />
+  <label for="userID">ID</label>
+  <input
+    type="text"
+    required
+    name="userID"
+    placeholder="userID"
+    [(ngModel)]="form.userID"
+  />
+  <button>step 2</button>
+</form>
+<form *ngIf="_data.check" #f="ngForm" (ngSubmit)="_data.register(form)">
+  <label for="city">City</label>
+  <select #city (click)="form.city = city.value">
+    <option *ngFor="let c of cities" [value]="c">{{ c }}</option>
+  </select>
+  <label for="street">Street</label>
+  <input
+    type="text"
+    required
+    name="street"
+    placeholder="street"
+    [(ngModel)]="form.street"
+  />
+  <label for="firstName">First Name</label>
+  <input
+    type="text"
+    required
+    name="firstName"
+    placeholder="firstName"
+    [(ngModel)]="form.firstName"
+  />
+  <label for="lastName">Last Name</label>
+  <input
+    type="text"
+    required
+    name="lastName"
+    placeholder="lastName"
+    [(ngModel)]="form.lastName"
+  />
+  <button>register</button>
+</form>
+{{ _data.errorMessage }}

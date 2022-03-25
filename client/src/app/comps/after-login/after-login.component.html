@@ -1,0 +1,8 @@
+<h1>Hey {{ _data.username }}</h1>
+<div *ngIf="_data.isAdmin">
+<button routerLink="/admin">Go to Admin Page</button>
+</div>
+<div *ngIf="!_data.isAdmin">
+<button routerLink="/products" *ngIf="_data.isCartOpenBol">Resume Shopping</button>
+<button (click)="_data.startshopping()" *ngIf="!_data.isCartOpenBol">Start Shopping</button>
+</div>

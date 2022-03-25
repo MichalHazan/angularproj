@@ -1,0 +1,64 @@
+<div class="thepage">
+  <div class="order_div">
+    <h1>Order Details</h1>
+    <p>Double click for auto fill</p>
+    <form [formGroup]="orderForm" (ngSubmit)="newOrder()">
+      <h4> Shipping Details </h4>
+      <mat-form-field class="example-full-width">
+          <mat-label>City</mat-label>
+          <input (dblclick)="getuserCityStreet()" [ngModel]="city" formControlName="sendCity" matInput type="text" placeholder="Try double click" />
+      </mat-form-field>
+      <br />
+      <mat-form-field class="example-full-width">
+          <mat-label >Street</mat-label>
+          <input (dblclick)="getuserCityStreet()" [ngModel]="street" formControlName="sendStreet" matInput type="text"
+              placeholder="Try double click" />
+      </mat-form-field>
+      <br />
+
+      <mat-form-field appearance="fill">
+        <mat-label>Choose a date</mat-label>
+        <input  (dateChange)="checkDate()" formControlName="sendDate" matInput [min]="minDate"  [matDatepicker]="picker">
+        <mat-datepicker-toggle style="color: rgb(102, 25, 138);" matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <p *ngIf="dateProblem">{{dateNotes}}</p>
+
+
+
+
+      <h4> Payments </h4>
+
+      <mat-form-field class="example-full-width">
+          <mat-label>Credit card</mat-label>
+          <input id="cc-number" type="text"  formControlName="payEnd" matInput
+              placeholder="Visa 4580" />
+      </mat-form-field>
+
+      <br />
+      <button mat-raised-button> Order </button>
+
+      <div class="notification" *ngIf="isNote"> {{formNotes}} </div>
+
+  </form>
+    <p>{{ _data.errorMessage }}</p>
+  </div>
+
+  <div class="cart">
+    <input type="text" placeholder="Search by name" [(ngModel)]="search" (ngModelChange)="_data.searchCart(search)">
+    <div class="cartpro">
+
+      <div *ngFor="let cart_pro of _data.cartArr" class="cart_product">
+        <img src="{{ cart_pro.image }}" alt="{{ cart_pro.productName }}" />
+        <!-- <p>{{ cart_pro.productName | searchPipe: search }}</p> -->
+        <p [innerHTML]="cart_pro.productName | searchPipe: search"></p>
+        <p></p>
+        <p>x{{ cart_pro.amount }}</p>
+        <p>{{ cart_pro.amount * cart_pro.price | currency: "ILS" }}</p>
+      </div>
+    </div>
+    <p>Total: {{ _data.sum | currency: "ILS" }}</p>
+
+    <button routerLink="/products">Resume Shopping</button>
+  </div>
+</div>

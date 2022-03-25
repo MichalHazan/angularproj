@@ -1,0 +1,9 @@
+form{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  input{
+    margin: 10px;
+    border-radius: 20px;
+  }
+}

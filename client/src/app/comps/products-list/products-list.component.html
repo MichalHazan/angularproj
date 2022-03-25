@@ -1,0 +1,94 @@
+<button type="button" mat-button (click)="drawer.toggle()">
+  <mat-icon>shopping_cart</mat-icon>
+</button>
+<input
+  type="text"
+  placeholder="Search by name"
+  [(ngModel)]="search"
+  (ngModelChange)="_data.searchproducts(search)"
+/>
+<mat-drawer-container class="main" autosize>
+  <mat-drawer #drawer class="sidenav" mode="side">
+    <input
+      type="text"
+      placeholder="Search by name"
+      [(ngModel)]="searchC"
+      (ngModelChange)="_data.searchCart(searchC)"
+    />
+    <div *ngFor="let cart_pro of _data.cartArr" class="cart_product">
+      <img src="{{ cart_pro.image }}" alt="{{ cart_pro.productName }}" />
+      <p [innerHTML]="cart_pro.productName | searchPipe: searchC"></p>
+      <p></p>
+      <p>x{{ cart_pro.amount }}</p>
+      <p>{{ cart_pro.amount * cart_pro.price | currency: "ILS" }}</p>
+      <button class="addmin" (click)="addToCart(cart_pro.product_id, 1)">
+        +
+      </button>
+      <button
+        class="addmin"
+        *ngIf="getPamount(cart_pro.product_id) > 0"
+        (click)="removeFromCart(cart_pro.product_id, 0)"
+      >
+        -
+      </button>
+    </div>
+    <div></div>
+    <button
+      class="delall"
+      *ngIf="_data.cartArr.length > 0"
+      (click)="_data.deleteAllPC()"
+    >
+      delete all
+    </button>
+    <p>Total: {{ _data.sum | currency: "ILS" }}</p>
+    <button routerLink="/order" *ngIf="_data.cartArr.length > 0" class="order">
+      Order now
+    </button>
+  </mat-drawer>
+
+  <div class="btn">
+    <mat-button-toggle-group
+      style="background-color: aquamarine"
+      name="fontStyle"
+      aria-label="Font Style"
+    >
+      <mat-button-toggle
+        style="background-color: rgb(79, 108, 116)"
+        *ngFor="let ctg of _data.categoriesArr"
+        (click)="_data.getproductsByCategory(ctg.categoryID)"
+        >{{ ctg.categoryName }}
+      </mat-button-toggle>
+      <mat-button-toggle (click)="_data.getproducts()">All</mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
+
+  <div class="list">
+    <mat-card class="card" *ngFor="let pro of _data.productsArr">
+      <mat-card-header>
+        <mat-card-title>{{ pro.productName }}</mat-card-title>
+        <mat-card-subtitle>{{ pro.categoryName }}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image [src]="pro.image" alt="{{ pro.productName }}" />
+      <mat-card-content>
+        <p>
+          {{ pro.price | currency: "ILS" }}
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button (click)="addToCart(pro.productID, 1)">
+          <mat-icon>add_shopping_cart</mat-icon>
+        </button>
+
+        <span>{{ getPamount(pro.productID) }}</span>
+
+        <button
+          mat-button
+          *ngIf="getPamount(pro.productID) > 0"
+          (click)="removeFromCart(pro.productID, 0)"
+        >
+          <mat-icon>remove_shopping_cart</mat-icon>
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</mat-drawer-container>

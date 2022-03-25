@@ -1,0 +1,66 @@
+$bgc: rgb(178, 222, 233);
+*{
+  align-items: center;
+  text-align: center;
+}
+/* width */
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $bgc;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background:  #f1f1f1;
+}
+.card {
+  width: 220px;
+  margin: 5px;
+  background-color:$bgc;
+  color: rgb(41, 7, 119);
+  img{
+    height: 200px;
+  }
+  input{
+    width: 50px;
+  }
+  &:hover{
+    border: 1px solid ;
+  }
+}
+
+.list{
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+ .btn{
+   overflow-x: auto;
+ }
+
+
+.sidenav-content {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidenav {
+  padding: 20px;
+  width: 30%;
+}
+.main{
+  background-color: whitesmoke ;
+  overflow-x: auto;
+  height: 73vh;
+}

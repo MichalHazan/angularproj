@@ -1,0 +1,45 @@
+<div class="home">
+  {{ _data.errorMessage }}
+
+
+    <div class="basic">
+      <div class="col">
+        <div class="reglog" *ngIf="!_data.islogin">
+          <button (click)="switchDiv()">
+            {{ _data.Isregister ? "Register now!" : "Login" }}
+          </button>
+          <app-register *ngIf="!_data.Isregister"></app-register>
+          <app-login *ngIf="_data.Isregister"></app-login>
+        </div>
+        <app-after-login *ngIf="_data.islogin"></app-after-login>
+      </div>
+      <div class="col">
+        <p>Its my finall project!</p>
+        <h2>you can buy products here very easily <br /></h2>
+        <div class="contact-menu">
+          <span>Contact us</span>:
+          <div class="contact-details">
+            Email: michalhazansnt@gmail.com <br />
+            Phone: 0526508192
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <img
+          src="https://thumbs.dreamstime.com/b/shop-building-colorful-isolated-white-33822015.jpg"
+          alt="shop"
+        />
+        <h3>Available products in our store: {{ _data.productsArr.length }}</h3>
+        <h3>
+          Numbers of orders submitted in our store:
+          {{ _data.Numbers_of_orders }}
+        </h3>
+        <h3 class="note" *ngIf="_data.isCartOpenBol">
+          You have an open cart  from
+          {{ _data.cartDate | date}}
+        </h3>
+      </div>
+    </div>
+
+  <!-- <app-products-list *ngIf="_data.islogin"></app-products-list> -->
+</div>

@@ -1,0 +1,32 @@
+.basic {
+  display: flex;
+  padding: 10px;
+  justify-content: center;
+  .col {
+    text-align: center;
+    width: 33%;
+    height: 220px;
+    img{
+      width: 50%;
+    }
+    border-right: 1px solid;
+  }
+}
+.contact-menu{
+  flex-grow: 1;
+  height: 115px;
+  /* line-height: 20px; */
+  font-size: 12px;
+  margin-left: 4vw;
+  margin-top: 2vh;
+  color: rgb(45, 22, 126);
+  white-space: pre;
+  overflow-y: auto;
+
+}
+.reglog{
+  button{
+    padding: 5px;
+    font-size: 14px;
+  }
+}

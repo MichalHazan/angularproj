@@ -1,0 +1,53 @@
+<button type="button" mat-button (click)="add= !add">
+  <mat-icon>add</mat-icon>
+</button>
+<input
+  type="text"
+  placeholder="Search by name"
+  [(ngModel)]="search"
+  (ngModelChange)="_data.searchproducts(search)"
+/>
+<mat-drawer-container class="main">
+  <mat-drawer #drawer class="sidenav" mode="side" opened>
+    <div *ngIf="!add">
+      click on a product to update or click on the + sign to add product
+      <app-admin *ngIf="_adminData.product"></app-admin>
+    </div>
+    <app-addp *ngIf="add"></app-addp>
+  </mat-drawer>
+
+  <div class="btn">
+    <mat-button-toggle-group
+      style="background-color: aquamarine"
+      name="fontStyle"
+      aria-label="Font Style"
+    >
+      <mat-button-toggle
+        style="background-color: rgb(79, 108, 116)"
+        *ngFor="let ctg of _data.categoriesArr"
+        (click)="_data.getproductsByCategory(ctg.categoryID)"
+        >{{ ctg.categoryName }}
+      </mat-button-toggle>
+      <mat-button-toggle (click)="_data.getproducts()">All</mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
+
+  <div class="list">
+    <mat-card
+      class="card"
+      *ngFor="let pro of _data.productsArr"
+      (click)="productClicked(pro.productID)"
+    >
+      <mat-card-header>
+        <mat-card-title>{{ pro.productName }}</mat-card-title>
+        <mat-card-subtitle>{{ pro.categoryName }}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image [src]="pro.image" alt="{{ pro.productName }}" />
+      <mat-card-content>
+        <p>
+          {{ pro.price | currency: "ILS" }}
+        </p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</mat-drawer-container>

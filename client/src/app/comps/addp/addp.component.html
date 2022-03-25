@@ -1,0 +1,54 @@
+<div class="form">
+  <form>
+    <mat-form-field class="field" appearance="fill">
+      <mat-label>Product Name</mat-label>
+      <input
+      matInput
+      style="color: black;"
+        #productName
+        autocomplete="off"
+      />
+    </mat-form-field>
+    <mat-form-field class="field" appearance="fill">
+      <mat-label >Product Price</mat-label>
+      <input
+      matInput
+      type="number"
+      style="color: black;"
+        #price
+        autocomplete="off"
+      />
+    </mat-form-field>
+    <mat-form-field class="field" appearance="fill">
+      <mat-label >Product Image</mat-label>
+      <input
+      matInput
+      style="color: black;"
+        #image
+        autocomplete="off"
+      />
+    </mat-form-field>
+
+
+    <mat-form-field appearance="fill" class="field">
+      <mat-label>Category</mat-label>
+      <mat-select #category >
+        <mat-option
+        style="color:rgb(255, 2, 2)"
+          *ngFor="let category of _data.categoriesArr"
+          [value]="category.categoryID"
+        >
+          {{ category.categoryName }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button (click)="_admindata.Addproduct(
+      {
+        productName: productName.value,
+        category_id: category.value,
+        price: tonumber(price.value),
+        image: image.value
+      }
+    )">Add</button>
+  </form>
+</div>

@@ -1,0 +1,55 @@
+<form
+  #f="ngForm"
+>
+ 
+  <label for="productName">product Name</label>
+  <input
+    type="text"
+    required
+    #productName
+    placeholder="productName"
+    [value]="_admindata.product.productName"
+  />
+  <mat-form-field appearance="fill">
+    <mat-label>Category</mat-label>
+    <mat-select [value]="_admindata.product.category_id" #category>
+      <mat-option *ngFor="let c of _data.categoriesArr" [value]="c.categoryID">
+        {{ c.categoryName }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <label for="price">price</label>
+  <input
+    type="number"
+    required
+    valueAsNumber
+    #price
+    placeholder="price"
+    [value]="_admindata.product.price"
+  />
+  <label for="image">image</label>
+  <input
+    type="text"
+    required
+    #image
+    placeholder="image"
+    [value]="_admindata.product.image"
+  />
+  <button (click)="_admindata.Updateproduct(
+    {
+      productName: productName.value,
+      category_id: category.value,
+      price: tonumber(price.value),
+      image: image.value
+    },
+    _admindata.product.productID
+  )">update</button>
+  <button (click)="_admindata.Addproduct(
+    {
+      productName: productName.value,
+      category_id: category.value,
+      price: tonumber(price.value),
+      image: image.value
+    }
+  )">Add</button>
+</form>
