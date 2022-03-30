@@ -18,7 +18,7 @@
 
       <mat-form-field appearance="fill">
         <mat-label>Choose a date</mat-label>
-        <input  (dateChange)="checkDate()" formControlName="sendDate" matInput [min]="minDate"  [matDatepicker]="picker">
+        <input  (dateChange)="checkDate()" formControlName="sendDate" [matDatepickerFilter]="myFilter" matInput [min]="minDate"  [matDatepicker]="picker">
         <mat-datepicker-toggle style="color: rgb(102, 25, 138);" matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
@@ -50,7 +50,6 @@
 
       <div *ngFor="let cart_pro of _data.cartArr" class="cart_product">
         <img src="{{ cart_pro.image }}" alt="{{ cart_pro.productName }}" />
-        <!-- <p>{{ cart_pro.productName | searchPipe: search }}</p> -->
         <p [innerHTML]="cart_pro.productName | searchPipe: search"></p>
         <p></p>
         <p>x{{ cart_pro.amount }}</p>

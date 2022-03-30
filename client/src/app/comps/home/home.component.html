@@ -34,12 +34,11 @@
           Numbers of orders submitted in our store:
           {{ _data.Numbers_of_orders }}
         </h3>
-        <h3 class="note" *ngIf="_data.isCartOpenBol">
+        <h3 class="note" *ngIf="_data.isCartOpenBol && _data.islogin">
           You have an open cart  from
           {{ _data.cartDate | date}}
         </h3>
       </div>
     </div>
 
-  <!-- <app-products-list *ngIf="_data.islogin"></app-products-list> -->
 </div>

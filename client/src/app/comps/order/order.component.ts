@@ -22,7 +22,8 @@ export class OrderComponent implements OnInit {
   public dayFor = '';
   public dateNotes = 'This day is too busy please check another one...';
   public dateProblem: boolean = false;
-  minDate: Date;
+  minDate = new Date().toISOString().split('T')[0];
+
   maxDate: Date;
   search =""
 
@@ -32,7 +33,11 @@ export class OrderComponent implements OnInit {
     public router: Router,
     public dialog: MatDialog
   ) {}
-
+  myFilter = (d: Date | null): boolean => {
+    const day = (d || new Date()).getDay();
+    // Prevent Saturday and Sunday from being selected.
+    return day !== 5 && day !== 6;
+  };
   openDialog() {
     const dialogRef = this.dialog.open(DialogOrderComponent);
 
@@ -52,8 +57,8 @@ export class OrderComponent implements OnInit {
     });
     this._data.getBusyDates();
 
-    const today = new Date().getDay();
-    this.minDate = new Date(today);
+
+
   }
 
   getuserCityStreet() {

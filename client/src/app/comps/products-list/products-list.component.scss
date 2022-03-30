@@ -1,5 +1,5 @@
-$bgc: rgb(178, 222, 233);
-*{
+$primary: #2e00ad;
+* {
   align-items: center;
   text-align: center;
 }
@@ -15,38 +15,43 @@ $bgc: rgb(178, 222, 233);
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: $bgc;
+  background: $primary;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background:  #f1f1f1;
+  background: #f1f1f1;
 }
 .card {
   width: 220px;
   margin: 5px;
-  background-color:$bgc;
-  color: rgb(41, 7, 119);
-  img{
+  background-color: whitesmoke;
+  color: $primary;
+  img {
     height: 200px;
   }
-  input{
+  input {
     width: 50px;
   }
-  &:hover{
-    border: 1px solid ;
+  &:hover {
+    border: 1px solid;
+    transition: 0.3s ease-in-out;
+    transform: scale(1.05);
   }
 }
 
-.list{
+mat-card-subtitle {
+  color: black;
+}
+
+.list {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
 }
- .btn{
-   overflow-x: auto;
- }
-
+.btn {
+  overflow-x: auto;
+}
 
 .sidenav-content {
   display: flex;
@@ -58,13 +63,12 @@ $bgc: rgb(178, 222, 233);
 .sidenav {
   padding: 20px;
 }
-.main{
-  background-color: whitesmoke ;
+.main {
+  background-color: whitesmoke;
   overflow-x: auto;
   height: 73vh;
 }
 .cart_product {
-
   display: flex;
   justify-content: space-between;
   width: 90%;
@@ -73,7 +77,7 @@ $bgc: rgb(178, 222, 233);
     width: 20%;
     height: 60%;
   }
-  .addmin{
+  .addmin {
     background-color: rgb(255, 255, 255);
     border: none;
     color: rgb(0, 0, 0);

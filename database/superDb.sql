@@ -125,11 +125,6 @@ VALUES
 ("Ritspaz - Sano", 8, "16.90", "https://www.sano.co.il/media/unnamed-13-1-180x300.jpg"),
 ("Softener - Sano Maxima", 8, "19.90", "https://www.sano.co.il/media/SA7290012117558-scaled.jpg");
 
--- INSERT INTO users
--- (userID, firstName, lastName, email, password, city, street,isAdmin)
--- VALUES
--- (123456789,"Michal","Hazan","michalhazansnt@gmail.com", "admin", "Rison Lezion", "Mivza Kadesh", 1);
-
 
 
 -- please make sure to add an admin use update on your sql after you register:

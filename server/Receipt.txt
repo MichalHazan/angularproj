@@ -1,11 +1,7 @@
 
- po's Receipt:
+ user's Receipt:
 
 
-Product: Cottege   Amount: 1   Price: 4.5 ₪   Sum: 4.5
+Product: Pineapple   Amount: 1   Price: 40 ₪   Sum: 40
 
-Product: Yolo   Amount: 1   Price: 5 ₪   Sum: 5
-
-Product: milk   Amount: 1   Price: 4.9 ₪   Sum: 4.9
-
-Total: 14.4 ₪   
+Total: 40 ₪   

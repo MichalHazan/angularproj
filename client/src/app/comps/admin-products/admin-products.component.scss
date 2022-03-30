@@ -1,5 +1,5 @@
-$bgc: rgb(178, 222, 233);
-*{
+$primary: #2e00ad;
+* {
   align-items: center;
   text-align: center;
 }
@@ -15,38 +15,39 @@ $bgc: rgb(178, 222, 233);
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: $bgc;
+  background: $primary;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background:  #f1f1f1;
+  background: #f1f1f1;
 }
 .card {
   width: 220px;
   margin: 5px;
-  background-color:$bgc;
-  color: rgb(41, 7, 119);
-  img{
+  background-color: whitesmoke;
+  color: $primary;
+  img {
     height: 200px;
   }
-  input{
+  input {
     width: 50px;
   }
-  &:hover{
-    border: 1px solid ;
+  &:hover {
+    border: 1px solid;
   }
 }
-
-.list{
+mat-card-subtitle {
+  color: $primary;
+}
+.list {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
 }
- .btn{
-   overflow-x: auto;
- }
-
+.btn {
+  overflow-x: auto;
+}
 
 .sidenav-content {
   display: flex;
@@ -59,8 +60,8 @@ $bgc: rgb(178, 222, 233);
   padding: 20px;
   width: 30%;
 }
-.main{
-  background-color: whitesmoke ;
+.main {
+  background-color: whitesmoke;
   overflow-x: auto;
   height: 73vh;
 }

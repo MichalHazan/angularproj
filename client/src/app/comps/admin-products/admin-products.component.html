@@ -18,12 +18,12 @@
 
   <div class="btn">
     <mat-button-toggle-group
-      style="background-color: aquamarine"
+      style="background-color: #5C2BE2"
       name="fontStyle"
       aria-label="Font Style"
     >
       <mat-button-toggle
-        style="background-color: rgb(79, 108, 116)"
+        style="background-color: #5C2BE2"
         *ngFor="let ctg of _data.categoriesArr"
         (click)="_data.getproductsByCategory(ctg.categoryID)"
         >{{ ctg.categoryName }}

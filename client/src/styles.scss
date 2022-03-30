@@ -1,15 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css2?family=Ramaraja&display=swap');
+$primary: #5C2BE2;
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: whitesmoke;}
 .highlight {
-  background-color: violet;
+  background-color: #af92ff;
   font-weight: bold;
 }
 .note{
   color: rgb(187, 187, 14);
   font-family: 'Ramaraja', serif;
 }
+
 form{
   display: flex;
   flex-direction: column;
@@ -18,7 +20,7 @@ form{
   align-items: center;
 }
 button{
-  background-color: rgba(74, 129, 230, 0.658);
+  background-color: $primary;
   border: none;
   color: white;
   padding: 20px;
